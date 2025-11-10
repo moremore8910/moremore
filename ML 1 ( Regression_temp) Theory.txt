@@ -1,0 +1,65 @@
+1)What is Linear Regression?
+Linear Regression is a statistical technique used to model the relationship between a dependent variable and one or more independent variables. In simple terms, it tries to find a straight line (or hyperplane in higher dimensions) that best fits the data points, which can then be used to predict future values.
+
+2)Explain the difference between simple and multiple linear regression.
+Simple Linear Regression involves a single independent variable used to predict the dependent variable. It finds a line that best fits the data points.
+Multiple Linear Regression uses two or more independent variables to predict the dependent variable. It finds a hyperplane in a multidimensional space that best fits the data points.
+
+3)Why do we use metrics like MSE, MAE, and R² to assess regression models?
+These metrics help us evaluate how well the model is performing. MSE and MAE give us an idea of the error magnitude, while R² tells us how well the model explains the variability of the data. Using different metrics provides a comprehensive view of the model’s accuracy and effectiveness.
+
+4)What does an R² value of 0 mean? What about an R² value of 1?
+An R² value of 0 means the model does not explain any of the variability in the dependent variable, indicating a poor fit. An R² value of 1 means the model explains all of the variability, indicating a perfect fit.
+
+5)What are some potential drawbacks of using MSE as an error metric?
+MSE squares the errors, so it tends to give more weight to large errors, making it sensitive to outliers. This can sometimes distort the true performance of the model if there are outliers in the data.
+
+6)How would you interpret the slope and intercept of a linear regression line?
+The slope represents the change in the dependent variable for a one-unit change in the independent variable. The intercept is the value of the dependent variable when the independent variable(s) is zero.
+
+7)Why is visualization important in regression analysis?
+Visualization helps us assess the model’s fit and understand the relationship between variables. A scatter plot with a regression line can show how closely data points align with the line, indicating the model’s accuracy.
+
+8)How does linear regression minimize error?
+Linear regression typically uses a method called Ordinary Least Squares (OLS), which minimizes the sum of squared residuals (differences between actual and predicted values). Another approach, Gradient Descent, iteratively adjusts parameters to minimize the error.
+
+9)How would you handle overfitting in a linear regression model?
+To handle overfitting, we can use regularization techniques like Ridge or Lasso regression, reduce the number of features, or increase the training data size. Regularization penalizes larger coefficients, discouraging complex models.
+
+10)What are some assumptions of linear regression?
+Key assumptions include:
+Linearity: The relationship between independent and dependent variables is linear.
+Independence: Observations are independent of each other.
+Homoscedasticity: The variance of error terms is constant across all levels of the independent variable.
+Normality of Residuals: Residuals (errors) are normally distributed.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Theory:-
+
+Practical on Regression Technique: Predicting Temperature Data
+
+Objective:
+The objective of this practical was to apply linear regression on month-wise temperature data of India to predict future temperatures and assess the model’s performance.
+
+Dataset:
+The dataset used in this assignment is monthly average temperature data for India, with temperatures recorded in Celsius. The data includes average temperatures for each month, making it suitable for time series or trend analysis.
+
+Steps Performed:
+
+Data Loading and Preprocessing:
+
+The dataset was downloaded and loaded into the environment. Basic preprocessing was performed to handle any missing or irrelevant data, ensuring clean data for analysis.
+Building the Linear Regression Model:
+
+Linear regression, a supervised machine learning algorithm, was applied to predict temperatures based on the months. We used the scikit-learn library’s Linear Regression function for this task.
+In this model, months served as the independent variable, and temperature as the dependent variable.
+Model Evaluation:
+
+After training the model, we assessed its performance using three metrics:
+Mean Squared Error (MSE): Measures the average squared differences between actual and predicted temperatures. Lower values indicate better model performance.
+Mean Absolute Error (MAE): Calculates the average of absolute differences between actual and predicted values. Like MSE, lower MAE values signify more accurate predictions.
+R-Squared (R²): Shows how well the independent variable (month) explains the variability in the temperature data. An R² value closer to 1 suggests a better fit.
+Visualization:
+
+To visually assess the model’s fit, a scatter plot of actual vs. predicted temperatures was created. The regression line was plotted, showing how well the predicted temperatures aligned with the actual data points.
+Conclusion:
+This practical demonstrated the application of linear regression for predicting temperatures. The model’s performance metrics, MSE, MAE, and R², helped evaluate how accurately the model could predict future temperatures. Visualization allowed for a clearer understanding of the model’s fit, providing insights into the trend of temperature changes over months.
