@@ -1,0 +1,112 @@
+Theory:-
+
+Practical on Classification Technique: Predicting Admission Using Decision Tree
+
+Objective:
+The goal of this practical is to build a Decision Tree classifier to predict whether a student will get admission to a foreign university based on academic factors such as GRE and TOEFL scores, university ratings, statement of purpose (SOP) strength, letter of recommendation (LOR) strength, GPA, and research experience.
+
+Dataset:
+The dataset contains information about students’ academic scores and application strengths:
+
+GRE Scores (0-340)
+TOEFL Scores (0-120)
+University Rating (1-5)
+Statement of Purpose Strength (1-5)
+Letter of Recommendation Strength (1-5)
+Undergraduate GPA (0-10)
+Research Experience (0 or 1, where 0 = no and 1 = yes)
+Admitted (target variable, 0 or 1, where 0 = not admitted and 1 = admitted)
+Steps Performed:
+
+Data Preprocessing:
+
+Label Encoding: Since the target variable, "Admitted," is binary, it’s already in the 0/1 format required for classification. If any categorical data needed conversion, we would use label encoding or one-hot encoding.
+Data Transformation: Normalizing or scaling features may be beneficial for some models, but Decision Trees are generally robust to feature scaling, so this may be optional.
+Train-Test Split: The dataset is split into a training set (e.g., 80%) and a testing set (e.g., 20%) to allow model evaluation on unseen data.
+Building the Decision Tree Model:
+
+Decision Tree Classifier: We used the Decision Tree algorithm, which works by splitting the data into subsets based on feature values, creating a "tree" of decisions that leads to a classification.
+The Decision Tree model is created using the scikit-learn library, and parameters like max_depth and min_samples_split can be adjusted to prevent overfitting.
+Model Training:
+
+The Decision Tree classifier is trained on the training dataset, learning from the patterns in GRE, TOEFL, GPA, and other features to determine admission likelihood.
+Model Evaluation:
+
+After training, the model is evaluated on the testing set using several metrics:
+Accuracy: Measures the percentage of correct predictions over total predictions.
+Precision: Indicates how many predicted admissions were actual admissions.
+Recall: Reflects how many of the actual admissions were correctly predicted by the model.
+F1 Score: Balances precision and recall, providing a single metric for model performance, particularly useful when class distributions are imbalanced.
+Conclusion:
+This practical demonstrates the application of the Decision Tree classifier for admission prediction. The model provides valuable insights by predicting the likelihood of admission based on students' academic profiles, helping counselors make informed decisions. The evaluation metrics (accuracy, precision, recall, and F1 score) indicate the model's effectiveness in correctly predicting admissions.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+1.What is a Decision Tree Classifier?
+A Decision Tree Classifier is a machine learning algorithm that splits data into subsets based on feature values, creating a tree-like model. Each branch represents a decision path based on feature values, ultimately leading to a classification.
+
+2.What is the purpose of label encoding in data preprocessing?
+Label encoding converts categorical data into numerical form so that machine learning algorithms can process it. It assigns integer values to each unique category.
+
+3.Why do we perform train-test splitting?
+Train-test splitting divides the dataset into two parts: one for training the model and another for testing it. This allows us to evaluate the model’s performance on unseen data, providing an unbiased assessment of its accuracy.
+
+4.What is overfitting in a Decision Tree, and how can it be prevented?
+Overfitting occurs when a Decision Tree becomes too complex and fits the training data too closely, leading to poor generalization on new data. It can be prevented by limiting tree depth (max_depth), specifying the minimum samples per split (min_samples_split), or using pruning techniques.
+
+5.Explain the difference between precision and recall.
+Precision measures the proportion of positive predictions that were correct, while recall measures the proportion of actual positives that were correctly predicted. Precision is important for reducing false positives, whereas recall focuses on capturing as many true positives as possible.
+
+6.What are the advantages of using Decision Trees?
+Decision Trees are easy to interpret, handle both numerical and categorical data, and require minimal data preprocessing. They are also non-parametric, meaning they don’t assume a specific data distribution.
+
+7.Why is the F1 score useful in model evaluation?
+The F1 score balances precision and recall, making it useful for evaluating models on imbalanced datasets, where focusing on either precision or recall alone might not provide an accurate performance picture.
+
+8.How does a Decision Tree split data?
+A Decision Tree splits data based on feature values that minimize a metric like Gini impurity or entropy (for classification). The goal is to create the purest subsets, where the data points belong mostly to a single class.
+
+9.What is Gini impurity?
+Gini impurity is a metric used to assess how often a randomly chosen element would be incorrectly classified. It’s calculated for each node split to determine the best feature to split on in a Decision Tree.
+
+10.How would you choose between using a Decision Tree and other classification methods like Logistic Regression?
+Decision Trees are preferred when we need interpretability and can handle complex feature interactions. Logistic Regression is better when the relationship between variables is more linear and for smaller, high-dimensional data.
+
+////////////////////////////////////////////////////////////////////////////////////
+
+Core Concepts in Decision Tree Classification for Admission Prediction
+Classification Technique:
+
+Classification is a type of supervised learning where the goal is to assign data points to predefined categories. In this case, we aim to classify students as either "Admitted" (1) or "Not Admitted" (0) based on features like GRE scores, TOEFL scores, GPA, and other admission-related metrics.
+Decision Tree Algorithm:
+
+A Decision Tree is a flowchart-like structure used to make decisions based on a series of conditions. Each node represents a feature or attribute, and each branch represents a decision based on that feature. The final nodes (leaves) show the predicted class label.
+Decision Trees work by recursively splitting the data on features that best separate the classes. For classification tasks, these splits aim to maximize "purity" in the resulting groups.
+Splitting Criteria:
+
+Gini Impurity and Entropy are commonly used measures to evaluate the quality of a split.
+Gini Impurity: Measures the likelihood of incorrect classification. Lower Gini impurity values indicate purer splits, meaning the data is more homogeneous within each split.
+Entropy: Measures the randomness in the data; lower entropy signifies less disorder and better classification.
+The Decision Tree algorithm evaluates each feature to find the best split that minimizes impurity or entropy, thereby improving classification accuracy.
+Data Preprocessing:
+
+Label Encoding: Converts categorical values into numerical values. In this dataset, the target column ("Admitted") is already encoded as 0 (not admitted) and 1 (admitted).
+Data Transformation: Scaling and normalization may be used to standardize features, but Decision Trees are generally insensitive to scaling, so this step can be optional for this model.
+Train-Test Split: Splits the data into training and testing sets (e.g., 80% training, 20% testing) so the model can be evaluated on unseen data, giving a more accurate representation of its performance.
+Evaluation Metrics:
+
+Accuracy: The ratio of correctly predicted admissions to the total predictions. It provides a straightforward assessment of model performance.
+Precision: Measures the proportion of students predicted as "admitted" who actually got admitted. High precision means the model makes few false-positive errors (predicting "admitted" when the student was not admitted).
+Recall: Measures the proportion of actual admissions that were correctly predicted. High recall indicates the model accurately identifies a large number of positive cases.
+F1 Score: The harmonic mean of precision and recall, balancing both metrics, especially useful when classes are imbalanced.
+Overfitting and Regularization:
+
+Overfitting: When a Decision Tree becomes too complex, it might "memorize" the training data, performing well on the training set but poorly on new data. This is known as overfitting.
+Regularization in Decision Trees involves limiting the depth of the tree (max_depth), the minimum number of samples required for a split (min_samples_split), or pruning (removing less informative nodes). These techniques prevent the model from becoming overly complex, ensuring better generalization to new data.
+Interpretability:
+
+Decision Trees are interpretable models. Each split in the tree represents a decision based on a feature, making it easy to understand why a particular prediction was made. This transparency can be valuable when explaining model decisions to stakeholders.
+
+
+
+
