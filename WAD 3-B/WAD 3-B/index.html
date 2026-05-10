@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>CRUD App</title>
+
+    <style>
+
+        *{
+            box-sizing:border-box;
+            font-family:Arial;
+        }
+
+        body{
+            background:#f4f4f4;
+            text-align:center;
+            padding-top:40px;
+        }
+
+        .box{
+
+            background:white;
+            width:380px;
+            margin:auto;
+            padding:25px;
+            border-radius:10px;
+            box-shadow:0px 0px 10px gray;
+        }
+
+        h2{
+            color:#0d6efd;
+        }
+
+        input{
+
+            width:100%;
+            padding:10px;
+            margin-top:10px;
+            border:1px solid gray;
+            border-radius:5px;
+        }
+
+        button{
+
+            padding:10px 20px;
+            background:#0d6efd;
+            color:white;
+            border:none;
+            border-radius:5px;
+            margin-top:10px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#084298;
+        }
+
+        table{
+
+            margin:auto;
+            margin-top:30px;
+            border-collapse:collapse;
+            width:80%;
+            background:white;
+            box-shadow:0px 0px 10px gray;
+        }
+
+        th,td{
+
+            border:1px solid gray;
+            padding:12px;
+        }
+
+        th{
+
+            background:#0d6efd;
+            color:white;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="box">
+
+        <h2>User Registration</h2>
+
+        <input type="text"
+        id="name"
+        placeholder="Enter Name">
+
+        <input type="email"
+        id="email"
+        placeholder="Enter Email">
+
+        <input type="password"
+        id="password"
+        placeholder="Enter Password">
+
+        <button onclick="registerUser()">
+
+        Register
+
+        </button>
+
+        <button onclick="showUsers()">
+
+        Show Users
+
+        </button>
+
+    </div>
+
+    <!-- Table -->
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Name</th>
+
+                <th>Email</th>
+
+                <th>Actions</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody id="data"></tbody>
+
+    </table>
+
+    <script>
+
+        // CREATE
+        async function registerUser(){
+
+            const user = {
+
+                name:
+                document.getElementById('name').value,
+
+                email:
+                document.getElementById('email').value,
+
+                password:
+                document.getElementById('password').value
+            };
+
+            const res = await fetch('/register', {
+
+                method:'POST',
+
+                headers:{
+                    'Content-Type':'application/json'
+                },
+
+                body:JSON.stringify(user)
+
+            });
+
+            const msg = await res.text();
+
+            alert(msg);
+
+            // Clear Inputs
+            document.getElementById('name').value = "";
+
+            document.getElementById('email').value = "";
+
+            document.getElementById('password').value = "";
+
+            showUsers();
+        }
+
+
+        // READ
+        async function showUsers(){
+
+            const res = await fetch('/users');
+
+            const users = await res.json();
+
+            let output = "";
+
+            users.forEach(user => {
+
+                output += `
+
+                <tr>
+
+                    <td>
+
+                        <input
+                        value="${user.name}"
+                        id="name${user._id}">
+
+                    </td>
+
+                    <td>
+
+                        <input
+                        value="${user.email}"
+                        id="email${user._id}">
+
+                    </td>
+
+                    <td>
+
+                        <button
+                        onclick="updateUser('${user._id}')">
+
+                        Update
+
+                        </button>
+
+                        <button
+                        onclick="deleteUser('${user._id}')">
+
+                        Delete
+
+                        </button>
+
+                    </td>
+
+                </tr>
+
+                `;
+            });
+
+            document.getElementById('data')
+            .innerHTML = output;
+        }
+
+
+        // UPDATE
+        async function updateUser(id){
+
+            const updatedUser = {
+
+                name:
+                document.getElementById('name'+id).value,
+
+                email:
+                document.getElementById('email'+id).value
+            };
+
+            const res = await fetch('/update/' + id, {
+
+                method:'PUT',
+
+                headers:{
+                    'Content-Type':'application/json'
+                },
+
+                body:JSON.stringify(updatedUser)
+
+            });
+
+            const msg = await res.text();
+
+            alert(msg);
+
+            showUsers();
+        }
+
+
+        // DELETE
+        async function deleteUser(id){
+
+            const res = await fetch('/delete/' + id, {
+
+                method:'DELETE'
+
+            });
+
+            const msg = await res.text();
+
+            alert(msg);
+
+            showUsers();
+        }
+
+    </script>
+
+</body>
+
+</html>

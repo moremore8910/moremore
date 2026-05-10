@@ -1,0 +1,4 @@
+open terminal in folder
+enter		
+	 node server.js
+

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Student Portal</title>
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1">
+
+    <!-- jQuery Mobile CSS -->
+    <link rel="stylesheet"
+    href="jquery.mobile-1.4.5.min.css">
+
+    <!-- jQuery -->
+    <script src="jquery.min.js"></script>
+
+    <!-- jQuery Mobile JS -->
+    <script src="jquery.mobile-1.4.5.min.js"></script>
+
+    <style>
+
+        body{
+            font-family:Arial;
+        }
+
+        .banner{
+
+            text-align:center;
+            padding:20px;
+            background:#0d6efd;
+            color:white;
+            border-radius:10px;
+            margin-bottom:15px;
+        }
+
+        .card{
+
+            background:white;
+            padding:15px;
+            border-radius:10px;
+            box-shadow:0px 0px 8px gray;
+            margin-bottom:15px;
+        }
+
+        .profile-img{
+
+            width:120px;
+            height:120px;
+            border-radius:50%;
+            display:block;
+            margin:auto;
+            margin-bottom:15px;
+        }
+
+        .course-box{
+
+            background:#f8f9fa;
+            padding:12px;
+            border-left:5px solid #0d6efd;
+            margin-bottom:10px;
+            border-radius:5px;
+        }
+
+        .contact-box{
+
+            background:white;
+            padding:15px;
+            border-radius:10px;
+            box-shadow:0px 0px 8px gray;
+        }
+
+        textarea{
+            height:100px !important;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- HOME PAGE -->
+    <div data-role="page" id="home">
+
+        <div data-role="header"
+        data-theme="b">
+
+            <h1>Student Portal</h1>
+
+        </div>
+
+        <div role="main"
+        class="ui-content">
+
+            <div class="banner">
+
+                <h2>Welcome Student</h2>
+
+                <p>
+                Mobile Website using jQuery Mobile
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Features</h3>
+
+                <ul data-role="listview"
+                data-inset="true">
+
+                    <li>
+                        <a href="#profile">
+                        Student Profile
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#courses">
+                        Courses
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#contact">
+                        Contact
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+        <div data-role="footer"
+        data-theme="b">
+
+            <h4>Student Portal</h4>
+
+        </div>
+
+    </div>
+
+    <!-- PROFILE PAGE -->
+    <div data-role="page" id="profile">
+
+        <div data-role="header"
+        data-theme="b">
+
+            <a href="#home"
+            data-icon="back">
+
+            Back
+
+            </a>
+
+            <h1>Profile</h1>
+
+        </div>
+
+        <div role="main"
+        class="ui-content">
+
+            <div class="card">
+
+                <img src="https://picsum.photos/200"
+                class="profile-img">
+
+                <h2 align="center">
+                Rahul Sharma
+                </h2>
+
+                <br>
+
+                <p><b>Class:</b> TE IT</p>
+
+                <br>
+
+                <p><b>Roll No:</b> 25</p>
+
+                <br>
+
+                <p><b>CGPA:</b> 9.2</p>
+
+            </div>
+
+        </div>
+
+        <div data-role="footer"
+        data-theme="b">
+
+            <h4>Profile Page</h4>
+
+        </div>
+
+    </div>
+
+    <!-- COURSES PAGE -->
+    <div data-role="page" id="courses">
+
+        <div data-role="header"
+        data-theme="b">
+
+            <a href="#home"
+            data-icon="back">
+
+            Back
+
+            </a>
+
+            <h1>Courses</h1>
+
+        </div>
+
+        <div role="main"
+        class="ui-content">
+
+            <div class="course-box">
+
+                Web Development
+
+            </div>
+
+            <div class="course-box">
+
+                Java Programming
+
+            </div>
+
+            <div class="course-box">
+
+                Machine Learning
+
+            </div>
+
+            <div class="course-box">
+
+                DBMS
+
+            </div>
+
+            <div class="course-box">
+
+                Operating System
+
+            </div>
+
+        </div>
+
+        <div data-role="footer"
+        data-theme="b">
+
+            <h4>Courses Page</h4>
+
+        </div>
+
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div data-role="page" id="contact">
+
+        <div data-role="header"
+        data-theme="b">
+
+            <a href="#home"
+            data-icon="back">
+
+            Back
+
+            </a>
+
+            <h1>Contact</h1>
+
+        </div>
+
+        <div role="main"
+        class="ui-content">
+
+            <div class="contact-box">
+
+                <label>Name:</label>
+
+                <input type="text"
+                placeholder="Enter Name">
+
+                <label>Email:</label>
+
+                <input type="email"
+                placeholder="Enter Email">
+
+                <label>Message:</label>
+
+                <textarea
+                placeholder="Enter Message">
+                </textarea>
+
+                <button type="button"
+                onclick="showMessage()">
+
+                Send Message
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <div data-role="footer"
+        data-theme="b">
+
+            <h4>Contact Page</h4>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        function showMessage(){
+
+            alert("Message Sent Successfully");
+        }
+
+    </script>
+
+</body>
+
+</html>

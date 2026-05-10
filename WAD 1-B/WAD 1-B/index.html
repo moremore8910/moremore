@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Registration</title>
+
+    <style>
+        body{
+            font-family: Arial;
+            background: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container{
+            background: white;
+            padding: 30px;
+            width: 320px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        h2{
+            text-align: center;
+        }
+
+        input{
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        button{
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        button:hover{
+            background: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Registration Form</h2>
+
+<form id="regForm">
+
+    Name:
+    <input type="text" id="name" required>
+
+    Email:
+    <input type="email" id="email" required>
+
+    <button type="submit">Register</button>
+
+</form>
+
+<button onclick="goToList()">View Users</button>
+
+</div>
+
+<script>
+let users = JSON.parse(localStorage.getItem("users")) || [];
+
+document.getElementById("regForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    let user = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value
+    };
+
+    users.push(user);
+
+    localStorage.setItem("users", JSON.stringify(users));
+
+    fetch("https://jsonplaceholder.typicode.com/posts", {
+        method: "POST",
+        body: JSON.stringify(user),
+        headers: {
+            "Content-type": "application/json"
+        }
+    })
+    .then(res => res.json())
+    .then(data => console.log(data));
+
+    alert("User Registered!");
+
+    document.getElementById("regForm").reset();
+});
+
+function goToList(){
+    window.location.href = "list.html";
+}
+</script>
+
+</body>
+</html>

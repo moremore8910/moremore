@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>College Dashboard</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.6.2/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="d-flex">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h4>Admin</h4>
+        <a href="#" onclick="showPage('dashboard')">Dashboard</a>
+        <a href="#" onclick="showPage('students')">Students</a>
+        <a href="#" onclick="showPage('exams')">Exams</a>
+    </div>
+
+    <!-- Content -->
+    <div class="main">
+
+        <!-- Dashboard -->
+        <div id="dashboard">
+            <h3>Dashboard</h3>
+            <div class="row">
+                <div class="col-md-3 col-6"><div class="card-box c1">Students<br><b>100</b></div></div>
+                <div class="col-md-3 col-6"><div class="card-box c2">Courses<br><b>20</b></div></div>
+                <div class="col-md-3 col-6"><div class="card-box c3">Exams<br><b>10</b></div></div>
+                <div class="col-md-3 col-6"><div class="card-box c4">Results<br><b>5</b></div></div>
+            </div>
+        </div>
+
+        <!-- Students -->
+        <div id="students" class="hidden">
+            <h3>Students Section</h3>
+            <p>Total Students: 100</p>
+        </div>
+
+        <!-- Exams -->
+        <div id="exams" class="hidden">
+            <h3>Exams Section</h3>
+            <p>Upcoming Exams: 10</p>
+        </div>
+
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

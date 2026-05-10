@@ -1,0 +1,238 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Student Portal</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial;
+        }
+
+        body{
+            background:#f4f4f4;
+        }
+
+        /* Hero Section */
+        .hero{
+
+            text-align:center;
+            padding:70px 20px;
+            background:#0d6efd;
+            color:white;
+        }
+
+        .hero h1{
+            font-size:40px;
+            margin-bottom:20px;
+        }
+
+        .hero p{
+            font-size:20px;
+            margin-bottom:20px;
+        }
+
+        button{
+
+            padding:12px 20px;
+            border:none;
+            border-radius:5px;
+            background:white;
+            color:#0d6efd;
+            font-size:16px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#e9ecef;
+        }
+
+        /* Cards */
+        .container{
+
+            display:flex;
+            justify-content:center;
+            flex-wrap:wrap;
+            gap:20px;
+            padding:40px;
+        }
+
+        .card{
+
+            background:white;
+            width:250px;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0px 0px 10px gray;
+            text-align:center;
+        }
+
+        .card h2{
+            margin-bottom:15px;
+            color:#0d6efd;
+        }
+
+        /* Announcement Box */
+        .announcement{
+
+            width:500px;
+            margin:auto;
+            margin-bottom:40px;
+            background:white;
+            padding:25px;
+            border-radius:10px;
+            box-shadow:0px 0px 10px gray;
+            text-align:center;
+        }
+
+        .announcement h2{
+            color:#0d6efd;
+            margin-bottom:15px;
+        }
+
+        #notice{
+            font-size:18px;
+            margin-top:15px;
+        }
+
+        /* Footer */
+        .footer{
+
+            background:#212529;
+            color:white;
+            text-align:center;
+            padding:15px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Hero -->
+    <div class="hero">
+
+        <h1>Welcome to Student Portal</h1>
+
+        <p>
+        This static website is served using Node.js
+        </p>
+
+        <button onclick="showMessage()">
+
+        Learn More
+
+        </button>
+
+    </div>
+
+    <!-- Cards -->
+    <div class="container">
+
+        <div class="card">
+
+            <h2>Courses</h2>
+
+            <p>
+            Explore engineering and IT courses.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Students</h2>
+
+            <p>
+            Manage student information and profiles.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Results</h2>
+
+            <p>
+            Check marks, grades and performance.
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- Announcement Section -->
+    <div class="announcement">
+
+        <h2>Latest Announcement</h2>
+
+        <p id="notice">
+
+        Mid-semester exams start from Monday.
+
+        </p>
+
+        <br>
+
+        <button onclick="changeNotice()">
+
+        Next Announcement
+
+        </button>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+
+        Node.js Static Website
+
+    </div>
+
+    <script>
+
+        function showMessage(){
+
+            alert("Welcome to Student Portal");
+        }
+
+        let notices = [
+
+            "Mid-semester exams start from Monday.",
+
+            "Project submission deadline is Friday.",
+
+            "College festival registrations are open.",
+
+            "Placement training starts next week."
+
+        ];
+
+        let index = 0;
+
+        function changeNotice(){
+
+            index++;
+
+            if(index >= notices.length){
+
+                index = 0;
+            }
+
+            document.getElementById("notice")
+            .innerHTML = notices[index];
+        }
+
+    </script>
+
+</body>
+
+</html>
+

@@ -1,0 +1,10 @@
+for windows
+
+1. open terminal in folder
+2. enter in terminal
+	 mongod 
+3. open another terminal in folder
+4. enter
+	node server.js
+
+
